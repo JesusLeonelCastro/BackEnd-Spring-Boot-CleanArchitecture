@@ -19,19 +19,19 @@ public class RolServiceImple implements IRolService {
 
     //METODO LISTAR ROLES
     @Override // Implementación del método para obtener todos los roles
-    public List<Rol> getAllRoles() {
+    public List<Rol> ListarRolesS() {
         return rolRepository.findAll();
     }
     
     //METODO BUSCAR ROL POR ID
     @Override 
-    public Optional<Rol> getRolById(Long id) {
+    public Optional<Rol> BuscarRolPorIDS(Long id) {
         return rolRepository.findById(id);
     }
 
     //METODO CREAR ROL
     @Override 
-    public Rol crear(RolDTO dto) {
+    public Rol CrearRolesS(RolDTO dto) {
         if (rolRepository.existsByNombre(dto.getNombre())) {
             throw new IllegalArgumentException("El nombre del rol ya existe"); 
         }
@@ -44,7 +44,7 @@ public class RolServiceImple implements IRolService {
 
     //METODO ACTUALIZAR ROL
     @Override
-    public Rol actualizar(Long id, RolDTO dto) {
+    public Rol ActualizarRolesS(Long id, RolDTO dto) {
         Rol rol = rolRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Rol no encontrado con id: " + id));
         rol.setNombre(dto.getNombre());
@@ -54,7 +54,7 @@ public class RolServiceImple implements IRolService {
 
     //METODO ELIMINAR ROL
     @Override
-    public void eliminar(Long id) {
+    public void EliminarRolesS(Long id) {
         if (!rolRepository.existsById(id)) {
             throw new RuntimeException("Rol no encontrado con id: " + id);
         }

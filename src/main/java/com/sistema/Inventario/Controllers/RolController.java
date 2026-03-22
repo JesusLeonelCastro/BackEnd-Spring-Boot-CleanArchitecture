@@ -20,7 +20,7 @@ public class RolController {
 
     @GetMapping("/ListarRoles")
     public ResponseEntity<ApiResponse<List<Rol>>> listar() {
-        List<Rol> roles = rolService.getAllRoles();
+        List<Rol> roles = rolService.ListarRolesS();
         return ResponseEntity.ok(
             ApiResponse.success("Roles obtenidos correctamente", roles)
         );
@@ -28,7 +28,7 @@ public class RolController {
 
     @GetMapping("/BuscarRol/{id}")
     public ResponseEntity<ApiResponse<Rol>> buscar(@PathVariable Long id) {
-        return rolService.getRolById(id)
+        return rolService.BuscarRolPorIDS(id)
             .map(rol -> ResponseEntity.ok(
                 ApiResponse.success("Rol encontrado", rol)))
             .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(
@@ -37,7 +37,7 @@ public class RolController {
 
     @PostMapping("/CrearRol")
     public ResponseEntity<ApiResponse<Rol>> crear(@Valid @RequestBody RolDTO dto) {
-        Rol nuevo = rolService.crear(dto);
+        Rol nuevo = rolService.CrearRolesS(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(
             ApiResponse.success("Rol creado correctamente", nuevo)
         );
@@ -47,7 +47,7 @@ public class RolController {
     public ResponseEntity<ApiResponse<Rol>> actualizar(
             @PathVariable Long id,
             @Valid @RequestBody RolDTO dto) {
-        Rol actualizado = rolService.actualizar(id, dto);
+        Rol actualizado = rolService.ActualizarRolesS(id, dto);
         return ResponseEntity.ok(
             ApiResponse.success("Rol actualizado correctamente", actualizado)
         );
@@ -55,7 +55,7 @@ public class RolController {
 
     @DeleteMapping("/EliminarRol/{id}")
     public ResponseEntity<ApiResponse<Void>> eliminar(@PathVariable Long id) {
-        rolService.eliminar(id);
+        rolService.EliminarRolesS(id);
         return ResponseEntity.ok(
             ApiResponse.success("Rol eliminado correctamente")
         );

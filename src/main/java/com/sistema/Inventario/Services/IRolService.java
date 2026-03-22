@@ -8,10 +8,10 @@ import java.util.Optional;
 
 public interface IRolService {
 
-    List<Rol> getAllRoles();             // METODO LISTAR ROLES
-    Optional<Rol> getRolById(Long id);   // METODO BUSCAR ROL POR ID
-    Rol crear(RolDTO dto);               // METODO CREAR ROL
-    Rol actualizar(Long id, RolDTO dto); // METODO ACTUALIZAR ROL
-    void eliminar(Long id);              // METODO ELIMINAR ROL
+    List<Rol> ListarRolesS();             // METODO LISTAR ROLES
+    Optional<Rol> BuscarRolPorIDS(Long id);   // METODO BUSCAR ROL POR ID
+    Rol CrearRolesS(RolDTO dto);               // METODO CREAR ROL
+    Rol ActualizarRolesS(Long id, RolDTO dto); // METODO ACTUALIZAR ROL
+    void EliminarRolesS(Long id);              // METODO ELIMINAR ROL
 
 } 

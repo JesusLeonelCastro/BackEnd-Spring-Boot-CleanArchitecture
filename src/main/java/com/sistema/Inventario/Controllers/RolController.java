@@ -19,11 +19,9 @@ public class RolController {
     private final IRolService rolService;
 
     @GetMapping("/ListarRoles")
-    public ResponseEntity<ApiResponse<List<Rol>>> listar() {
+    public ResponseEntity<List<Rol>> listar() {
         List<Rol> roles = rolService.ListarRolesS();
-        return ResponseEntity.ok(
-            ApiResponse.success("Roles obtenidos correctamente", roles)
-        );
+        return ResponseEntity.ok(roles);
     }
 
     @GetMapping("/BuscarRol/{id}")

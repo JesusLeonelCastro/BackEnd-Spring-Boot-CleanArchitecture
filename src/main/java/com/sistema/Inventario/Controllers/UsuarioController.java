@@ -20,11 +20,9 @@ public class UsuarioController {
     private final IUsuarioService usuarioService;
 
     @GetMapping("/ListarUsuario")
-    public ResponseEntity<ApiResponse<List<Usuario>>> listar() {
+    public ResponseEntity<List<Usuario>> listar() {
         List<Usuario> usuarios = usuarioService.ListarUsuariosS();
-        return ResponseEntity.ok(
-            ApiResponse.success("Usuarios obtenidos correctamente", usuarios)
-        );
+        return ResponseEntity.ok(usuarios);
     }
 
     @GetMapping("/BuscarUsuario/{id}")

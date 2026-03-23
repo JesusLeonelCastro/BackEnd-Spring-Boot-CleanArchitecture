@@ -8,7 +8,9 @@ import java.util.Optional;
 // Repositorio para la entidad Rol, extiende JpaRepository para operaciones CRUD
 @Repository
 public interface RolRepository extends JpaRepository<Rol, Long> {
+    
     Optional<Rol> findByNombre(String nombre);
+
     boolean existsByNombre(String nombre);
 }
 

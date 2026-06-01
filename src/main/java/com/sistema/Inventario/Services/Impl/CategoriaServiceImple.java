@@ -33,6 +33,7 @@ public class CategoriaServiceImple implements ICategoriaService {
     //METODO CREAR CATEGORIA
     @Override 
     public Categoria CrearCategoriasS(CategoriaDTO dto) {
+        // Verificar si el nombre de la categoria ya existe antes de crear una nueva categoria
         if (categoriaRepository.existsByNombre(dto.getNombre())) {
             throw new IllegalArgumentException("El nombre de la categoria ya existe"); 
         }

@@ -2,7 +2,7 @@
 
 > API REST desarrollada con arquitectura en capas (Layered Architecture), siguiendo buenas prácticas de desarrollo con Spring Boot 3.x, JPA/Hibernate y PostgreSQL.
 
----
+------
 
 ## 📑 Índice
 
